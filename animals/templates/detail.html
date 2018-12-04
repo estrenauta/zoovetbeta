@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <p>{{ animal.name }}</p>
+    <p>{{ animal.adoption_day }}</p>
+    <p>{{ animal.species }}</p>
+    <p>{{ animal.breed }}</p>
+    <p>{{ animal.castrating }}</p>
+    <p>{{ animal.created_at }}</p>
+    <p>{{ animal.modified_at }}</p>
+{% endblock %}

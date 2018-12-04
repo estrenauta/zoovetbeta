@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <p>Hi {{ user.username }}!</p>
+        <p><a href="{% url 'logout' %}">logout</a></p>
+        {% if animals %}
+            {% for animal in animals %}
+                <ul>
+                    <li>{{animal.name}}</li>
+                    <li>Cumpleaños {{animal.adoption_day}}</li>
+                    <li><a href="animal/detail/{{animal.id}}">Ver más</a></li>                
+                </ul>
+            {% endfor %}
+        {% endif %}
+
+    {% else %}
+        <p>You are not logged in</p>
+        <a href="{% url 'login' %}">login</a>
+    {% endif %}
+{% endblock %}
