@@ -4,10 +4,32 @@
 
 {% block content %}
     <p>{{ animal.name }}</p>
-    <p>{{ animal.adoption_day }}</p>
-    <p>{{ animal.species }}</p>
-    <p>{{ animal.breed }}</p>
-    <p>{{ animal.castrating }}</p>
-    <p>{{ animal.created_at }}</p>
-    <p>{{ animal.modified_at }}</p>
+    <p>Adoptado el: {{ animal.adoption_day }}</p>
+    <p>Es un: {{ animal.species }}</p>
+    <p>Raza: {{ animal.breed }}</p>
+    <p>Esta esterilizado: {{ animal.castrating }}</p>
+    <p>Fue dado de alta el: {{ animal.created_at }}</p>
+    <p>Actualizaron su archivo el: {{ animal.modified_at }}</p>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Search</button>
+<!--<h2>Animals</h2>
+    <table>
+        <thead>
+            <tr>Nombre</tr>
+            <tr>Adoptado el: </tr>
+            <tr>Es un: </tr>
+            <tr>Raza: </tr>
+            <tr>Esta esterilizado: </tr>
+        </thead>
+        <tbody>
+            {% for radiobase in radiobases%}
+            <tr>
+                <td>{{ animal.name}}</td>
+                <td>{{ animal.adoption_day }}</td>
+                <td>{{ animal.species }}</td>
+                <td>{{ animal.castrating }}</td>
+                <td>{{ animal.modified_at }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>-->
 {% endblock %}

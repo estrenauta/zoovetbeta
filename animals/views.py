@@ -1,7 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Animal
-
+from .forms import AnimalForm
 # Create your views here.
 
 def index(request):
@@ -23,3 +23,30 @@ def detail_animal(request, animal_id):
     }
     return render(request, 'detail.html', context)
 
+
+def create_animal(request):
+    if request.user.is_authenticated:
+        form = AnimalForm(request.POST or None)
+        if request.method == 'POST':
+            if form.is_valid():
+                animal = form.save(commit = False)
+                animal.user = request.user
+                animal.save()
+            return redirect('index')
+        return render(request, 'animal_create.html', {'form': form})
+    else:
+        return redirect('login')
+
+def edit_animal(request, animal_id):
+    if request.user.is_authenticated:
+        animal= Animal.objects.get(id= animal_id)
+        form = AnimalForm(request.POST or None, instance= animal)
+        
+        if request.method == 'POST':
+            if form.is_valid():
+                animal = form.save(commit = False)
+                animal.save()
+                return redirect('detail_animal', animal.id)
+        return render(request, 'animal_edit.html', {'form':form })
+    else:
+        return redirect('login')
