@@ -1,3 +1,4 @@
+{% load crispy_forms_tags %}
 
 {% if form.errors %}
     {% for field in errors %}
@@ -12,5 +13,6 @@
 <form method="POST">
     {% csrf_token %}
     {{ form.as_p }}
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Create animal</button>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Crecer la familia</button>
+    <button><p><a href="{% url 'index' %}">Volver a Zoopet's</a></p></button>
 </form>

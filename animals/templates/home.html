@@ -6,7 +6,7 @@
     {% if user.is_authenticated %}
         <p>Bienvenido a Zoovet: {{ user.username }}!</p>
         <p><a href="{% url 'logout' %}">logout</a></p>
-        
+        <h2>Estas a cargo de estos Zoopet's</h2>
         {% if animals %}
             {% for animal in animals %}
                 <ul>
@@ -16,8 +16,21 @@
                 </ul>
             {% endfor %}
         {% endif %}
-        <p><a href="{% url 'animal_create' %}">Agrega un Zoopet</a></p>
+        <button><a href="{% url 'animal_create' %}">Agrega un Zoopet</a></button>
+        <p></p>
+        <p></p>
 
+        <h2>Estos son tus Zooveterinarios</h2>
+        <!--{% if users %}
+            {% for uservet in users %}
+                <ul>
+                    <li>{{uservet.name}}</li>
+                    <li>Clinica {{uservet.clinic_name}}</li>
+                    <li><a href="animal/detail/{{animal.id}}">Más detalles</a></li>                
+                </ul>
+            {% endfor %}
+        {% endif %}-->
+        <button><a>Agrega un Zooveterinario</a></button>
     {% else %}
         <p>You are not logged in</p>
         <a href="{% url 'login' %}">login</a>

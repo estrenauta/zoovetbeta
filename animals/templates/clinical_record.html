@@ -1,15 +1,17 @@
 {% extends 'base.html' %}
 
-{% block title %}Home{% endblock %}
+{% block title %}clinical Record{% endblock %}
 
 {% block content %}
     <p>{{ animal.name }}</p>
-    <p>Bienvenido el: {{ animal.adoption_day }}</p>
-    <p>Es un: {{ animal.species }}</p>
+    <p>Día de adopción: {{ animal.adoption_day }}</p>
+    <p>Especie: {{ animal.species }}</p>
     <p>Raza: {{ animal.breed }}</p>
-    <p>Esta esterilizado: {{ animal.castrating }}</p>
-    <p>Fue dado de alta el: {{ animal.created_at }}</p>
-    <p>Actualizaron su archivo el: {{ animal.modified_at }}</p>
+    <p>Esterilizado: {{ animal.castrating }}</p>
+    <p>Alta: {{ animal.created_at }}</p>
+    <p>Actualizado: {{ clinical_record.modified_at }}</p>
+    <p>Vacunas: {{ inmunization.vaccine_id }}</p>
+
     <li><a href="{% url 'animal_edit' animal.id %}">Edita a {{animal.name}}</a></li>
     <li><a href="{% url 'animal_delete' animal.id %}">Elimina a {{animal.name}}</a></li>
     <button><a href="{% url 'index' %}">Volver a Zoopet's</a></button>

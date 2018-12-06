@@ -35,6 +35,7 @@ class Animal(models.Model):
     tattoo = models.CharField(max_length=45, null= True)
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
+    dead = models.BooleanField(null= True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
 class ClinicalRecord(models.Model):
