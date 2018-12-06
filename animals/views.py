@@ -50,3 +50,10 @@ def edit_animal(request, animal_id):
         return render(request, 'animal_edit.html', {'form':form })
     else:
         return redirect('login')
+
+def delete_animal(request, animal_id):
+    if request.user.is_authenticated:
+        Animal.objects.filter(id= animal_id).delete()
+        return redirect('index')
+    else:
+        return redirect('login')

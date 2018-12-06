@@ -4,32 +4,13 @@
 
 {% block content %}
     <p>{{ animal.name }}</p>
-    <p>Adoptado el: {{ animal.adoption_day }}</p>
+    <p>Bienvenido el: {{ animal.adoption_day }}</p>
     <p>Es un: {{ animal.species }}</p>
     <p>Raza: {{ animal.breed }}</p>
     <p>Esta esterilizado: {{ animal.castrating }}</p>
     <p>Fue dado de alta el: {{ animal.created_at }}</p>
     <p>Actualizaron su archivo el: {{ animal.modified_at }}</p>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Search</button>
-<!--<h2>Animals</h2>
-    <table>
-        <thead>
-            <tr>Nombre</tr>
-            <tr>Adoptado el: </tr>
-            <tr>Es un: </tr>
-            <tr>Raza: </tr>
-            <tr>Esta esterilizado: </tr>
-        </thead>
-        <tbody>
-            {% for radiobase in radiobases%}
-            <tr>
-                <td>{{ animal.name}}</td>
-                <td>{{ animal.adoption_day }}</td>
-                <td>{{ animal.species }}</td>
-                <td>{{ animal.castrating }}</td>
-                <td>{{ animal.modified_at }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>-->
+    <button><p><a href="{% url 'index' %}">Volver a Zoopet's</a></p></button>
+    <li><a href="{% url 'animal_edit' animal.id %}">Edita a {{animal.name}}</a></li>
+    <li><a href="{% url 'animal_delete' animal.id %}">Elimina a {{animal.name}}</a></li>
 {% endblock %}
