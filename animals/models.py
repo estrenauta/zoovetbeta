@@ -18,13 +18,15 @@ class Vaccine(models.Model):
     name = models.CharField(max_length=45, null= False)
     description = models.TextField(null = False)
 
+
+
 class Antiparasitic(models.Model):
     name = models.CharField(max_length=45, null= False)
     description = models.TextField(null = False)
 
 class Animal(models.Model): 
     name = models.CharField(max_length=200, null= False)
-    chip =  models.IntegerField(null=True)
+    chip =  models.IntegerField()
     adoption_day = models.DateField(null= False)
     species = models.CharField(max_length=45, null= False)
     breed = models.CharField(max_length=45)
@@ -32,11 +34,14 @@ class Animal(models.Model):
     sex = models.CharField(max_length=45)
     castrating = models.BooleanField(null= False)
     pedigree = models.CharField(max_length=45)
-    tattoo = models.CharField(max_length=45, null= True)
+    tattoo = models.CharField(max_length=45)
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
     dead = models.BooleanField(null= True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
 
 class ClinicalRecord(models.Model):
     examination_date = models.DateField()

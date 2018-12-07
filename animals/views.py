@@ -57,3 +57,11 @@ def delete_animal(request, animal_id):
         return redirect('index')
     else:
         return redirect('login')
+
+def record(request, animal_id):
+    user = request.user
+    animal = user.animal_set.get(id=animal_id)
+    context = {
+        'animal': animal
+    }
+    return render(request, 'record.html', context)

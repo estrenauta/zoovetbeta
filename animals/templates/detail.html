@@ -1,17 +1,31 @@
 {% extends 'base.html' %}
 
+{% load crispy_forms_tags %}
+
 {% block title %}Home{% endblock %}
 
 {% block content %}
-    <p>{{ animal.name }}</p>
+    <h3>{{ animal.name }} {{ animal.species }}</h3>
     <p>Bienvenido el: {{ animal.adoption_day }}</p>
-    <p>Es un: {{ animal.species }}</p>
-    <p>Raza: {{ animal.breed }}</p>
     <p>Esta esterilizado: {{ animal.castrating }}</p>
     <p>Fue dado de alta el: {{ animal.created_at }}</p>
     <p>Actualizaron su archivo el: {{ animal.modified_at }}</p>
     <li><a href="{% url 'animal_edit' animal.id %}">Edita a {{animal.name}}</a></li>
     <li><a href="{% url 'animal_delete' animal.id %}">Elimina a {{animal.name}}</a></li>
     <button><a href="{% url 'index' %}">Volver a Zoopet's</a></button>
-    <button><li><a>Historia Clínica</a></li></button>
+    
+
+
+        <h3>Estos son tus Zooveterinarios</h3>
+        <!--{% if users %}
+            {% for uservet in users %}
+                <ul>
+                    <li>{{uservet.name}}</li>
+                    <li>Clinica {{uservet.clinic_name}}</li>
+                    <li><a href="animal/detail/{{animal.id}}">Más detalles</a></li>                
+                </ul>
+            {% endfor %}
+        {% endif %}-->
+        <button><a>Agrega un Zooveterinario</a></button>
+        <button><a href="{% url 'record' animal.id %}">Historia Clínica</a></button>
 {% endblock %}

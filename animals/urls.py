@@ -8,4 +8,5 @@ urlpatterns = [
     path('animal/create/', views.create_animal, name="animal_create"),
     path('animal/edit/<int:animal_id>', views.edit_animal, name="animal_edit"),
     path('animal/delete/<int:animal_id>', views.delete_animal, name="animal_delete"),
+    path('animal/record/<int:animal_id>', views.record, name="record"),
 ]

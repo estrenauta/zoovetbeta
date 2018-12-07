@@ -4,15 +4,16 @@
 
 {% block content %}
     {% if user.is_authenticated %}
-        <p>Bienvenido a Zoovet: {{ user.username }}!</p>
+        <h2>Bienvenid@ a Zoovet: {{ user.username }}!</h2>
         <p><a href="{% url 'logout' %}">logout</a></p>
-        <h2>Estas a cargo de estos Zoopet's</h2>
+        <p><a>Perfil</a></p>
+        <h3>Estas a cargo de estos Zoopet's</h3>
         {% if animals %}
             {% for animal in animals %}
                 <ul>
-                    <li>{{animal.name}}</li>
+                        <h4>{{animal.name}}</h4>
                     <li>Cumpleaños {{animal.adoption_day}}</li>
-                    <li><a href="animal/detail/{{animal.id}}">Más detalles</a></li>                
+                    <p><a href="animal/detail/{{animal.id}}">Más detalles</a></p>                
                 </ul>
             {% endfor %}
         {% endif %}
@@ -20,17 +21,6 @@
         <p></p>
         <p></p>
 
-        <h2>Estos son tus Zooveterinarios</h2>
-        <!--{% if users %}
-            {% for uservet in users %}
-                <ul>
-                    <li>{{uservet.name}}</li>
-                    <li>Clinica {{uservet.clinic_name}}</li>
-                    <li><a href="animal/detail/{{animal.id}}">Más detalles</a></li>                
-                </ul>
-            {% endfor %}
-        {% endif %}-->
-        <button><a>Agrega un Zooveterinario</a></button>
     {% else %}
         <p>You are not logged in</p>
         <a href="{% url 'login' %}">login</a>
