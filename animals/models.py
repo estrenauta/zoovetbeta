@@ -18,15 +18,22 @@ class Vaccine(models.Model):
     name = models.CharField(max_length=45, null= False)
     description = models.TextField(null = False)
 
-
-
 class Antiparasitic(models.Model):
     name = models.CharField(max_length=45, null= False)
     description = models.TextField(null = False)
 
+class UserVet(models.Model):
+    cedula_profesional = models.IntegerField()
+    clinic_name = models.CharField(max_length = 45)
+    user = models.OneToOneField(User, on_delete= models.CASCADE, primary_key= True)
+
+    def __str__(self):
+        return self.user.username
+    
+
 class Animal(models.Model): 
     name = models.CharField(max_length=200, null= False)
-    chip =  models.IntegerField()
+    chip =  models.IntegerField(null=True)
     adoption_day = models.DateField(null= False)
     species = models.CharField(max_length=45, null= False)
     breed = models.CharField(max_length=45)
@@ -34,11 +41,12 @@ class Animal(models.Model):
     sex = models.CharField(max_length=45)
     castrating = models.BooleanField(null= False)
     pedigree = models.CharField(max_length=45)
-    tattoo = models.CharField(max_length=45)
+    tattoo = models.CharField(max_length=45, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
     dead = models.BooleanField(null= True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    vets = models.ManyToManyField(UserVet)
 
     def __str__(self):
         return self.name
@@ -68,14 +76,7 @@ class Deworming(models.Model):
     reapplication_date = models.DateField(null = False)
     created_at = models.DateTimeField(auto_now_add=True)
 
-class UserVet(models.Model):
-    cedula_profesional = models.IntegerField()
-    clinic_name = models.CharField(max_length = 45)
-    user = models.OneToOneField(User, on_delete= models.CASCADE, primary_key= True)
 
-    def __str__(self):
-        return 'UserVet: {}'.format(self.user.username)
-    
     #animal = models.ManyToManyField(Animal, through='Animal', related_name='animal')
     #members = models.ManyToManyField (Person, through= 'Memebership')
 

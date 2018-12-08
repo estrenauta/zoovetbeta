@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Record{% endblock %}
+{% block title %}Zoovet Record{% endblock %}
 
 {% block content %}
     <h3>{{ animal.name }}</h3>
@@ -10,10 +10,23 @@
     <p>Esterilizado: {{ animal.castrating }}</p>
     <p>Alta: {{ animal.created_at }}</p>
 
-    <p>Actualizado: {{ clinical_record.modified_at }}</p>
-    <p>Vacunas: {{ inmunization.vaccine_id }}</p>
-    <p>Desparasitacion: {{ deworming.antiparasitic_id }}</p>
+    <p>Actualizado: {{ animal.clinicalrecord.create_at }}</p>
+
+    {% for clinicalrecord in animal.clinicalrecord_set.all %}
+        <p> Fecha de Examinación: {{ clinicalrecord.examination_date }}</p>
+            {% for vaccine in clinicalrecord.vaccines.all %}
+                <p>Vacunas: {{ vaccine.name }}</p>
+                <li>Aplicación: {{ vaccine.description }}</li>
+            {% endfor%}
+            {% for antiparasitic in clinicalrecord.antiparasitic.all %}
+                <p>Desparasitación: {{ antiparasitic.name }}</p>
+                <li>Aplicación: {{ antiparasitic.description }}</li>
+            {% endfor %}
+    {% endfor %}
     
-    <button><a href="{% url 'index' %}">Volver a Zoopet's</a></button>
-    <button><li><a>Editar</a></li></button>
+    
+    <button class="btn btn-lg btn-warming"><li><a>Editar</a></li></button>
+    <button class="btn btn-lg btn-warming"><a href="{% url 'index' %}">Volver a Zoopet's</a></button>
+    <li><a href="{% url 'animal_edit' animal.id %}">Edita a {{animal.name}}</a></li>
+    <li><a href="{% url 'animal_delete' animal.id %}">Elimina a {{animal.name}}</a></li>
 {% endblock %}

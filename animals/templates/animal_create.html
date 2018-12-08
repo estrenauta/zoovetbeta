@@ -14,10 +14,11 @@
     {% endfor %}
 {% endif %} 
 
+
 <form method="POST">
     {% csrf_token %}
     {{ form.as_p }}
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Crecer la familia</button>
-    <button><p><a href="{% url 'index' %}">Volver a Zoopet's</a></p></button>
+    <button class="btn btn-lg btn-primary" type="submit">Adoptar</button>
+    <button class="btn btn-lg btn-warming"><a href="{% url 'index' %}">Volver a Zoopet's</a></button>
 </form>
 {% endblock %}

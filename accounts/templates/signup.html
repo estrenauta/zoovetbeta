@@ -3,12 +3,13 @@
 {% block title %}Zoovet{% endblock %}
 
 {% block content %}
-<h2>Sign up</h2>
+    <h2>Elige tu usuario y contraseña</h2>
 
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Sign Up</button>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-lg btn-primary"type="submit">Unirme</button>
+            <button class="btn btn-lg btn-warning"><a href="{% url 'login' %}">Ya recorde mi usuario</a></button>
 
-</form>
+        </form>
 {% endblock %}

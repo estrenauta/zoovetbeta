@@ -1,5 +1,5 @@
 from django import forms
-from .models import Animal
+from .models import Animal, UserProfile
 
 class AnimalForm(forms.ModelForm):
     
@@ -13,5 +13,26 @@ class AnimalForm(forms.ModelForm):
             'breed',
             'color',
             'sex',
-            'castrating'
+            'castrating',
+            'vets'
+        )
+
+class UserProfileform(forms.ModelForm):
+    class Meta:
+        model = UserProfile
+
+        fields = (
+            'street',
+            'colony',
+            'state',
+            'country',
+            'phone'
+        )
+
+class AddVet(forms.ModelForm):
+    class Meta:
+        model = Animal
+
+        fields = (
+            'vets',
         )

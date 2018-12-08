@@ -3,11 +3,42 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
+            <nav class="navbar navbar-dark bg-dark">
+            <h2 class="navbar-brand" href="#">Bienvenid@ a Zoovet: {{ user.username }}!</h2>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample01" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarsExample01">
+                <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="">Historia Clinica</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Otras opciones</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                    <a class="dropdown-item" href="#">Editar Perfil</a>
+                    <a class="dropdown-item" href="#">Editar Zoopet</a>
+                    <a class="dropdown-item" href="#">Agregar Zoovet</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}">Salir</a>
+                </li>
+                </ul>
+                <form class="form-inline my-2 my-md-0">
+                <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+                </form>
+            </div>
+            </nav>
+
+
     {% if user.is_authenticated %}
-        <h2>Bienvenid@ a Zoovet: {{ user.username }}!</h2>
-        <p><a href="{% url 'logout' %}">logout</a></p>
-        <p><a>Perfil</a></p>
-        <h3>Estas a cargo de estos Zoopet's</h3>
+        <p><a href="{% url 'logout' %}"></a></p>
+        <h3>Estas a cargo de estos Zoopet's:</h3>
         {% if animals %}
             {% for animal in animals %}
                 <ul>
@@ -17,10 +48,10 @@
                 </ul>
             {% endfor %}
         {% endif %}
-        <button><a href="{% url 'animal_create' %}">Agrega un Zoopet</a></button>
+        <button class="btn btn-lg btn-warning"><a href="{% url 'animal_create' %}">Agrega un Zoopet</a></button>
         <p></p>
         <p></p>
-
+      
     {% else %}
         <p>You are not logged in</p>
         <a href="{% url 'login' %}">login</a>
