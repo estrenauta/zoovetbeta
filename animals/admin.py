@@ -4,7 +4,7 @@ from .models import UserVet, UserProfile, Vaccine, Antiparasitic, Animal, Clinic
 
 class ClinicalRecordInLine(admin.TabularInline):
     model = ClinicalRecord
-    extra = 0 #campos para registrar
+    extra = 0 #campospararegistrar
 
 class UserVetAdmin(admin.ModelAdmin):
     list_display = ('user', 'cedula_profesional', 'clinic_name')
@@ -50,4 +50,4 @@ admin.site.register(Animal, AnimalAdmin)
 admin.site.register(Inmunization, InmunizationAdmin)
 admin.site.register(Deworming, DewormingAdmin)
 admin.site.register(ClinicalRecord, ClinicalRecordAdmin)
- #esto importa
+ #estoimporta

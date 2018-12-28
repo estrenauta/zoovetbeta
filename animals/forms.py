@@ -36,3 +36,11 @@ class AddVet(forms.ModelForm):
         fields = (
             'vets',
         )
+
+#class EditVet(forms.ModelForm):
+ #   class Meta:
+  #      model = UserVet
+
+   #     fields = (
+    #        'clinic_name',
+     #   )
