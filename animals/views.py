@@ -67,6 +67,8 @@ def record(request, animal_id):
         'animal': animal
     }
     return render(request, 'record.html', context)
+    #if animal.dead == True:
+     #   return redirect('detail.animal', animal.id)
 
 def vetadd(request, animal_id):
     if request.user.is_authenticated:
@@ -92,7 +94,22 @@ def vetadd(request, animal_id):
     #else:
      #   return redirect('login')
 
+
 #def vetedit(request, animal_id):
+ #   if request.user.is_authenticated:
+  #      animal= Animal.objects.get(id= animal_id)
+   #     form = UserForm(request.POST or None, instance= animal)
+    #    
+     #   if request.method == 'POST':
+      #      if form.is_valid():
+       #         animal = form.save(commit = False)
+        #        animal.save()
+         #       return redirect('detail_animal', animal.id)
+       # return render(request, 'animal_edit.html', {'form':form })
+   # else:
+    #    return redirect('login')
+
+#def vetrecord(request, animal_id):
  #   if request.user.is_authenticated:
   #      animal= Animal.objects.get(id= animal_id)
    #     form = UserForm(request.POST or None, instance= animal)

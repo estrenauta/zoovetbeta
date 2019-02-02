@@ -5,7 +5,7 @@
 {% block content %}
             <nav class="navbar navbar-dark bg-dark">
             <img class="img-thumbnail" src="/static/img/Zoovet2.jpg" alt="" width="72" height="62">
-            <h2 class="navbar-brand" href="#">Bienvenid@ a Zoovet: {{ user.username }}!</h2>
+            <h2 class="navbar-brand" href="#">Bienvenid@ a Zoovet: {{ user.username.upper }}!</h2>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample01" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -16,14 +16,15 @@
                     <a class="nav-link" href="">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="">Historia Clinica</a>
+                    <a class="nav-link disabled" href="">Premium</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Otras opciones</a>
+                    <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Redes Sociales</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown01">
-                    <a class="dropdown-item" href="#">Editar Perfil</a>
-                    <a class="dropdown-item" href="#">Editar Zoopet</a>
-                    <a class="dropdown-item" href="#">Agregar Zoovet</a>
+                    <a class="dropdown-item" href="https://www.facebook.com/zooveterinarios/">Facebook</a>
+                    <a class="dropdown-item" href="https://www.instagram.com/zooveterinarios/?utm_source=ig_profile_share&igshid=p8cw9q0imond">Instagram</a>
+                    <a class="dropdown-item" href="https://www.youtube.com/channel/UCLS-w1HWlllbmXndccp45hA?view_as=subscriber">Youtube</a>
+                    <a class="dropdown-item" href="https://twitter.com/Zooveterinarios">Twitter</a>
                     </div>
                 </li>
                 <li class="nav-item">
@@ -37,7 +38,93 @@
             </nav>
 
 
-    {% if user.is_authenticated %}
+    
+
+        <div class ="container">
+  <!--div class="col-xs-6"-->
+  <div class="contenido">
+			<h1 class="titulo"> Servicios </h1>
+            <p></p><p>Selecciona el tipo de servicio que buscas:</p><p></p>
+
+            <!-- AQUI SE MUESTRAN LOS SERVICIOS DESDE LA BASE DE DATOS -->
+            <ul class="listado-servicios">
+              <li class="a" >
+                <span class="altura-max">
+                  <span class="centrar"></span>
+                  <img class="img" src="">
+                </span>
+                <small>Médicos Veterinarios</small>
+              </li>
+              <li class="b" >
+                <span class="altura-max">
+                  <span class="centrar"></span>
+                    <img class="img" src="">
+                  </span>
+                  <small>Urgencias 24 hrs</small>
+                </li>
+                <li class="c">
+                    <span class="altura-max">
+                    <span class="centrar"></span>
+                    <img class="img" src="">
+                  </span>
+                  <small>Servicios a Domicilio</small>
+                </li>
+                <!--<li class="d">
+                  <span class="altura-max">
+                  <span class="centrar"></span>
+                    <img class="img" src="">
+                  </span>
+                  <small>Cirugias</small>
+                </li>
+
+                <li class="e">
+                  <span class="altura-max">
+                    <span class="centrar"></span>
+                    <img class="img" src="">
+                  </span>
+                  <small>Inseminación Artificial</small>
+                </li>
+                <li class="f">
+                  <span class="altura-max">
+                    <span class="centrar"></span>
+                    <img class="img" src="">
+                  </span>
+                  <small>Estetica canina</small>
+                </li>
+                <li class="g">
+                  <span class="altura-max">
+                    <span class="centrar"></span>
+                    <img class="img" src="">
+                  </span>
+                  <small>Farmacia</small>
+                </li>
+                <li class="h">
+                  <span class="altura-max">
+                    <span class="centrar"></span>
+                    <img class="img" src="">
+                  </span>
+                  <small>Pet Shop</small>
+                </li>
+                <li class="i">
+                  <span class="altura-max">
+                    <span class="centrar"></span>
+                    <img class="img" src="">
+                  </span>
+                  <small>Alimentos</small>
+                  </li>
+                  <li class="j">
+                    <span class="altura-max">
+                      <span class="centrar"></span>
+                      <img class="img" src="">
+                    </span>
+                    <small>Lugares Pet-Friendly</small>
+                  </li>
+             </ul>
+
+        </div>
+      /div-->
+    </div>
+     {% if user.is_authenticated %}
         <p><a href="{% url 'logout' %}"></a></p>
         <h3>Estas a cargo de estos Zoopet's:</h3>
         {% if animals %}
@@ -52,92 +139,6 @@
         <button class="btn btn-lg btn-warning"><a href="{% url 'animal_create' %}">Crece la familia</a></button>
         <p></p>
         <p></p>
-
-        <div class ="container">
-  <!--div class="col-xs-6"-->
-  <div class="contenido">
-			<h1 class="titulo"> Servicios </h1>
-            <p></p><p>Selecciona el tipo de servicio que buscas:</p><p></p>
-
-            <!-- AQUI SE MUESTRAN LOS SERVICIOS DESDE LA BASE DE DATOS -->
-            <ul class="listado-servicios">
-              <li class="a" >
-                <span class="altura-max">
-                  <span class="centrar"></span>
-                  <img class="img" src="images/Servicios/estetos.png"></img>
-                </span>
-                <small>Medicos Veterinarios</small>
-              </li>
-              <li class="b" >
-                <span class="altura-max">
-                  <span class="centrar"></span>
-                    <img class="img" src="images/Servicios/mas.png"></img>
-                  </span>
-                  <small>Urgencias 24 hrs</small>
-                </li>
-                <li class="c">
-                  <span class="altura-max">
-                  <span class="centrar"></span>
-                    <img class="img" src="images/Servicios/mas_chica.png"></img>
-                  </span>
-                  <small>Consulta a Domicilio</small>
-                </li>
-                <li class="d">
-                  <span class="altura-max">
-                  <span class="centrar"></span>
-                    <img class="img" src="images/Servicios/escalpelo.png"></img>
-                  </span>
-                  <small>Cirugías</small>
-                </li>
-
-                <li class="e">
-                  <span class="altura-max">
-                    <span class="centrar"></span>
-                    <img class="img" src="images/Servicios/fertilizacion.png">
-                  </span>
-                  <small>Inseminación Artificial</small>
-                </li>
-                <li class="f">
-                  <span class="altura-max">
-                    <span class="centrar"></span>
-                    <img class="img" src="images/Servicios/tijera.png">
-                  </span>
-                  <small>Estetica canina</small>
-                </li>
-                <li class="g">
-                  <span class="altura-max">
-                    <span class="centrar"></span>
-                    <img class="img" src="images/Servicios/pastillas.png">
-                  </span>
-                  <small>Farmacia</small>
-                </li>
-                <li class="h">
-                  <span class="altura-max">
-                    <span class="centrar"></span>
-                    <img class="img" src="images/Servicios/bolsa.png">
-                  </span>
-                  <small>Pet Shop</small>
-                </li>
-                <li class="i">
-                  <span class="altura-max">
-                    <span class="centrar"></span>
-                    <img class="img" src="images/Servicios/hueso.png">
-                  </span>
-                  <small>Alimentos</small>
-                  </li>
-                  <li class="j">
-                    <span class="altura-max">
-                      <span class="centrar"></span>
-                      <img class="img" src="images/Servicios/perro.png">
-                    </span>
-                    <small>Lugares Pet-Friendly</small>
-                  </li>
-             </ul>
-
-        </div>
-      <!--/div-->
-
-    </div>
       
     {% else %}
         {% block nav %}

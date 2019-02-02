@@ -35,6 +35,14 @@
             </div>
             </nav>
 
+    <div class="media">
+            <div class="media-left media-middle">
+                <a href="#">
+                    <img class="media-object img-thumbnail" ng-src ="{{ animal.image }}" alt = "{{ animal.name }}" cheight="110" width="110height="110" width="110">
+                </a>
+            </div>
+    </div>
+
     <h2>{{ animal.name }}</h2>
     <p>Día de adopción: {{ animal.adoption_day }}</p>
     <p>Especie: {{ animal.species }}</p>
@@ -58,4 +66,5 @@
     {% endfor %}
     <a class="btn btn-lg btn-primary" href="{% url 'vetadd' animal.id %}">Agrega un Zooveterinario</a>
     <button class="btn btn-lg btn-warming"><a href="{% url 'index' %}">Volver a Zoopet's</a></button>
+
 {% endblock %}

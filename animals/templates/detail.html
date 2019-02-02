@@ -17,13 +17,13 @@
                     <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="">Historia Clinica</a>
+                    <a class="nav-link disabled" href="">Premium</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Otras opciones</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown01">
                     <a class="dropdown-item" href="#">Editar Perfil</a>
-                    <a class="dropdown-item" href="#">Editar Zoopet</a>
+                    <a class="dropdown-item" href="{% url 'animal_edit' animal.id %}">Editar Zoopet</a>
                     <a class="dropdown-item" href="#">Agregar Zoovet</a>
                     </div>
                 </li>
@@ -37,7 +37,7 @@
             </div>
             </nav>
 
-        <button class="btn btn-lg btn-warming"><a href="{% url 'record' animal.id %}">Historia Clínica</a></button>
+        
     <h3>{{ animal.name }} {{ animal.species }}</h3>
             <p>Esterilizado: {{ animal.castrating }}</p>
             <p>Fue dado de alta el: {{ animal.created_at }}</p>
@@ -49,8 +49,7 @@
             {% for vet in animal.vets.all %}
                 <ul>
                     <li>MVZ {{vet.user.username}}</li>
-                    <p>Clinica {{vet.clinic_name}}</p>
-                    <!--<li><a href="">Más detalles</a></li>-->                
+                    <p>Clinica {{vet.clinic_name}}</p>               
                 </ul>
                 <!--<ul>
                     <li>{{vet.user.username}}</li>
@@ -59,5 +58,8 @@
                 </ul>-->
             {% endfor %}
         
-        <a class="btn btn-lg btn-warming" href="{% url 'index' %}">Volver a Zoopet's</a>
+        <h3>Dirección: </h3>
+            <p> Ciudad {{ user.city }} </p>
+        <a class="btn btn-lg btn-warming" href="{% url 'index' %}">Volver</a>
+        <button class="btn btn-lg btn-warming"><a href="{% url 'record' animal.id %}">Historia Clínica</a></button>
 {% endblock %}

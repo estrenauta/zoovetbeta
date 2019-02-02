@@ -76,6 +76,9 @@ class Deworming(models.Model):
     reapplication_date = models.DateField(null = False)
     created_at = models.DateTimeField(auto_now_add=True)
 
+#class Services(models.Model):
+
+
 
     #animal = models.ManyToManyField(Animal, through='Animal', related_name='animal')
     #members = models.ManyToManyField (Person, through= 'Memebership')

@@ -14,13 +14,16 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="">Historia Clinica</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link disabled dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Servicios</a>
+                    <a class="dropdown-item" href="{% url 'animal_delete' animal.id %}">Elimina a {{animal.name}}</a>
+                    <a class="dropdown-item" href="{% url 'animal_edit' animal.id %}">Edita a {{animal.name}}</a>
+                    <a class="dropdown-item" href="">Edita dirección {{animal.name}}</a>
+                    <a class="dropdown-item" href="">Encuentra un servicio {{animal.name}}</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Otras opciones</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown01">
-                    <a class="dropdown-item" href="{% url 'animal_delete' animal.id %}">Elimina a {{animal.name}}</a>
                     <a class="dropdown-item" href="#">Editar Perfil</a>
                     <a class="dropdown-item" href="{% url 'animal_edit' animal.id %}">Edita a {{animal.name}}</a>
                     </div>
@@ -42,20 +45,25 @@
     <p>Esterilizado: {{ animal.castrating }}</p>
     <p>Alta: {{ animal.created_at }}</p>
     <p>Actualizado: {{ animal.modified_at }}</p>
-    <p><a href=""> Dx última visita: {{ clinicalrecord.diagnostic }} </a></p>
+    <!--<p>Murio: {{ animal.dead }} </p>-->
+    <!--<p><a href=""> Dx última visita: {{ clinicalrecord.diagnostic }} </a></p>-->
 
     {% for clinicalrecord in animal.clinicalrecord_set.all %}
         <p> Fecha de Examinación: {{ clinicalrecord.examination_date }}</p>
 
             {% for vaccine in clinicalrecord.vaccines.all %}
-                <h3>Vacunas: {{ vaccine.name }}</h3>
-                <li>Aplicación: {{ inmunization.application_date }}</li>
+                <h3>Vacunas: </h3>
+                <li> {{ vaccine.name }} </li>
+                <p>Aplicación: {{ inmunization.application_date }}</p>
             {% endfor%}
             {% for antiparasitic in clinicalrecord.antiparasitic.all %}
-                <h3>Desparasitación: {{ antiparasitic.name }}</h3>
-                <li>Aplicación: {{ deworming.application_date }}</li>
+                <h3>Desparasitación: </h3>
+                <li> {{ antiparasitic.name }} </li>
+                <p>Aplicación: {{ deworming.application_date }}</p>
             {% endfor %}
     {% endfor %}
+
     <a class="btn btn-lg btn-primary" href="{% url 'vetadd' animal.id %}">Agrega un Zooveterinario</a>
+    <!--<a class="btn btn-lg btn-primary" href="{% url 'vetadd' animal.id %}">Agrega un Zoovet auxiliar</a>-->
     <button class="btn btn-lg btn-warming"><a href="{% url 'index' %}">Volver a Zoopet's</a></button>
 {% endblock %}

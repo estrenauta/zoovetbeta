@@ -14,7 +14,8 @@ class AnimalForm(forms.ModelForm):
             'color',
             'sex',
             'castrating',
-            'vets'
+            'vets',
+            'dead'
         )
 
 class UserProfileform(forms.ModelForm):

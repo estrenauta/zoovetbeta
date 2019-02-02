@@ -1,4 +1,6 @@
 {% load static %}
+
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -14,8 +16,26 @@
     <div class="container" style='margin-top: 40px'>
         {% block content %}
 
-        {% endblock %}
-    </div>
+        <footer>
+            <ul class="icons">            
+                <ul class="icons">           
+                    <a href="mailto:info%40zoovet.mx" class="icon  fa-envelope" title="Email"><span class="label">Email</span></a>                            
+                    <a href="https://www.facebook.com/zooveterinarios/" class="icon  fa-facebook" target="_blank" title="Facebook"><span class="label">Facebook</span></a>                      
+                    <a href="https://www.instagram.com/zooveterinarios/?utm_source=ig_profile_share&igshid=p8cw9q0imond" class="icon fa-instagram" target="_blank"  title="Instagram"><span class="label">Instagram</span></a>                             
+                </ul>            
+            </ul>
+        </footer>
+
+        {% endblock %}   
+    <footer>
+        <ul class="icons">            
+            <ul class="icons">           
+                <a href="https://twitter.com/Zooveterinarios" class="icon  fa-Twitter" target="_blank" title="Twitter"><span class="label">Twitter</span></a>                            
+                <a href="https://www.facebook.com/zooveterinarios/" class="icon  fa-facebook" target="_blank" title="Facebook"><span class="label">Facebook</span></a>                      
+                <a href="https://www.instagram.com/zooveterinarios/?utm_source=ig_profile_share&igshid=p8cw9q0imond" class="icon fa-instagram" target="_blank"  title="Instagram"><span class="label">Instagram</span></a>                             
+            </ul>            
+        </ul>
+    </footer>
     
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
